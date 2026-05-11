@@ -3,840 +3,724 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VyantraX</title>
+  <title>VyantraX | Building Intelligent Digital Systems</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0B0B0D;
-      color: white;
-      overflow-x: hidden;
+    body{
+      font-family:'Inter',sans-serif;
+      background:#06070A;
+      color:white;
+      overflow-x:hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1300px;
-      margin: auto;
+    .container{
+      width:90%;
+      max-width:1400px;
+      margin:auto;
     }
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(14px);
-      background: rgba(11,11,13,0.9);
-      z-index: 100;
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(6,7,10,0.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
-    .logo {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:24px 0;
     }
 
-    .logo span {
-      color: #007BFF;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:34px;
+      font-weight:900;
+      letter-spacing:1px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 35px;
-      color: #cfcfcf;
-      font-size: 15px;
+    .logo img{
+      width:48px;
+      height:48px;
+      border-radius:12px;
     }
 
-    .nav-links a:hover {
-      color: #007BFF;
+    .logo span{
+      color:#007BFF;
     }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+    .nav-links{
+      display:flex;
+      gap:40px;
+      color:#c7c7c7;
+      font-size:15px;
+      font-weight:500;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      background: rgba(0,123,255,0.18);
-      border-radius: 50%;
-      filter: blur(140px);
-      top: -200px;
-      right: -100px;
+    .nav-links a:hover{
+      color:#007BFF;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-      gap: 70px;
-      align-items: center;
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      padding-top:120px;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 12px 22px;
-      border: 1px solid rgba(0,123,255,0.4);
-      border-radius: 50px;
-      color: #53a6ff;
-      margin-bottom: 30px;
-      font-size: 14px;
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:rgba(0,123,255,0.16);
+      border-radius:50%;
+      filter:blur(140px);
+      top:-250px;
+      right:-150px;
     }
 
-    .hero h1 {
-      font-size: 72px;
-      line-height: 1.05;
-      margin-bottom: 30px;
-      font-weight: 900;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+      gap:80px;
+      align-items:center;
     }
 
-    .hero h1 span {
-      color: #007BFF;
+    .tag{
+      display:inline-block;
+      padding:12px 24px;
+      border-radius:50px;
+      border:1px solid rgba(0,123,255,0.3);
+      color:#7cbcff;
+      margin-bottom:28px;
+      font-size:14px;
+      backdrop-filter:blur(10px);
     }
 
-    .hero p {
-      color: #b0b0b0;
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 650px;
+    .hero h1{
+      font-size:78px;
+      line-height:1.04;
+      margin-bottom:28px;
+      font-weight:900;
     }
 
-    .buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .hero h1 span{
+      color:#007BFF;
     }
 
-    .btn {
-      padding: 18px 34px;
-      border-radius: 18px;
-      font-weight: 700;
-      transition: 0.3s ease;
-      cursor: pointer;
-      border: none;
+    .hero p{
+      color:#b8b8b8;
+      font-size:20px;
+      line-height:1.9;
+      max-width:720px;
+      margin-bottom:45px;
     }
 
-    .btn-primary {
-      background: #007BFF;
-      color: white;
-      box-shadow: 0 0 40px rgba(0,123,255,0.3);
+    .buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-4px);
+    .btn{
+      padding:18px 36px;
+      border-radius:18px;
+      border:none;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s ease;
     }
 
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: white;
+    .btn-primary{
+      background:#007BFF;
+      color:white;
+      box-shadow:0 0 50px rgba(0,123,255,0.35);
     }
 
-    .hero-card {
-      background: linear-gradient(145deg,#111117,#0a0a0f);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 45px;
-      border-radius: 35px;
-      position: relative;
-      z-index: 5;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+    .btn-primary:hover{
+      transform:translateY(-5px);
     }
 
-    .hero-card h2 {
-      font-size: 52px;
-      margin: 10px 0;
+    .btn-secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.12);
+      color:white;
     }
 
-    .stat-box {
-      margin-top: 30px;
+    .hero-card{
+      background:linear-gradient(145deg,#101117,#090A0D);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:36px;
+      padding:45px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 25px 80px rgba(0,0,0,0.45);
     }
 
-    .progress {
-      background: rgba(255,255,255,0.08);
-      border-radius: 20px;
-      height: 12px;
-      overflow: hidden;
-      margin-top: 10px;
+    .hero-card::before{
+      content:'';
+      position:absolute;
+      width:220px;
+      height:220px;
+      background:rgba(0,123,255,0.2);
+      border-radius:50%;
+      filter:blur(90px);
+      top:-60px;
+      right:-60px;
     }
 
-    .bar {
-      height: 100%;
-      background: #007BFF;
+    .dashboard-box{
+      position:relative;
+      z-index:2;
     }
 
-    /* SECTION */
-    section {
-      padding: 120px 0;
+    .dashboard-box h2{
+      font-size:52px;
+      margin:12px 0;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 70px;
+    .mini-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:24px;
+      padding:22px;
+      margin-top:20px;
     }
 
-    .section-title p {
-      color: #007BFF;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-      font-size: 14px;
+    .mini-card p{
+      color:#a7a7a7;
+      margin-bottom:10px;
+      font-size:14px;
     }
 
-    .section-title h2 {
-      font-size: 54px;
-      margin-bottom: 20px;
+    .bar{
+      width:100%;
+      height:12px;
+      background:rgba(255,255,255,0.06);
+      border-radius:30px;
+      overflow:hidden;
     }
 
-    .section-title span {
-      color: #b0b0b0;
-      font-size: 18px;
-      max-width: 700px;
-      display: inline-block;
-      line-height: 1.7;
+    .fill{
+      height:100%;
+      background:#007BFF;
     }
 
-    /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 30px;
+    section{
+      padding:120px 0;
     }
 
-    .service-card {
-      background: linear-gradient(180deg,#121218,#09090c);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 30px;
-      padding: 40px;
-      transition: 0.3s ease;
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
     }
 
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0,123,255,0.4);
+    .section-title p{
+      color:#007BFF;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:14px;
+      margin-bottom:20px;
     }
 
-    .service-card .icon {
-      font-size: 55px;
-      margin-bottom: 25px;
+    .section-title h2{
+      font-size:58px;
+      margin-bottom:18px;
     }
 
-    .service-card h3 {
-      margin-bottom: 18px;
-      font-size: 28px;
+    .section-title span{
+      color:#b5b5b5;
+      font-size:18px;
+      line-height:1.8;
+      max-width:850px;
+      display:inline-block;
     }
 
-    .service-card p {
-      color: #b0b0b0;
-      line-height: 1.8;
+    .services-grid,
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
     }
 
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-      gap: 35px;
+    .service-card,
+    .project-card{
+      background:linear-gradient(180deg,#101117,#08090C);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:32px;
+      overflow:hidden;
+      transition:0.35s ease;
     }
 
-    .project-card {
-      background: #111;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s ease;
+    .service-card:hover,
+    .project-card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(0,123,255,0.35);
+      box-shadow:0 20px 70px rgba(0,0,0,0.4);
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0,123,255,0.4);
+    .service-card{
+      padding:40px;
     }
 
-    .project-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
+    .service-icon{
+      font-size:58px;
+      margin-bottom:24px;
     }
 
-    .project-content {
-      padding: 35px;
+    .service-card h3,
+    .project-content h3{
+      font-size:30px;
+      margin-bottom:16px;
     }
 
-    .project-content small {
-      color: #007BFF;
-      font-size: 14px;
+    .service-card p,
+    .project-content p{
+      color:#b3b3b3;
+      line-height:1.9;
     }
 
-    .project-content h3 {
-      margin: 15px 0;
-      font-size: 30px;
+    .project-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
     }
 
-    .project-content p {
-      color: #b0b0b0;
-      line-height: 1.8;
+    .project-content{
+      padding:35px;
     }
 
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-      gap: 60px;
-      align-items: center;
+    .project-content small{
+      color:#007BFF;
+      font-size:14px;
     }
 
-    .about-box {
-      background: linear-gradient(145deg,rgba(0,123,255,0.1),rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 35px;
-      padding: 45px;
+    .contact-box{
+      background:linear-gradient(145deg,#0D0F14,#07080B);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:40px;
+      padding:70px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:50px;
     }
 
-    .about-box h3 {
-      margin-bottom: 15px;
-      font-size: 30px;
+    .contact-box input,
+    .contact-box textarea{
+      width:100%;
+      padding:18px 22px;
+      background:#0f1117;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      color:white;
+      margin-bottom:20px;
+      font-family:inherit;
     }
 
-    .about-box p {
-      color: #b0b0b0;
-      line-height: 1.8;
-      margin-bottom: 30px;
+    footer{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:45px 0;
+      text-align:center;
+      color:#888;
     }
 
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg,#007BFF,#0054b4);
-      border-radius: 40px;
-      padding: 80px 50px;
-      text-align: center;
-      box-shadow: 0 0 60px rgba(0,123,255,0.3);
+    footer h2{
+      font-size:36px;
+      margin-bottom:10px;
+      color:white;
     }
 
-    .cta h2 {
-      font-size: 58px;
-      margin-bottom: 25px;
+    footer h2 span{
+      color:#007BFF;
     }
 
-    .cta p {
-      max-width: 700px;
-      margin: auto;
-      color: #eaf3ff;
-      line-height: 1.8;
-      margin-bottom: 40px;
+    #modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.95);
+      z-index:9999;
+      display:none;
+      overflow:auto;
+      padding:40px;
     }
 
-    .cta button {
-      background: black;
-      color: white;
-      border: none;
-      padding: 18px 40px;
-      border-radius: 20px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
+    .modal-page{
+      display:none;
+      max-width:1500px;
+      margin:auto;
+      border-radius:40px;
+      overflow:hidden;
+      background:#0b0d12;
     }
 
-    /* FOOTER */
-    footer {
-      padding: 50px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-      color: #888;
+    .close-btn{
+      position:fixed;
+      top:25px;
+      right:30px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:none;
+      background:#007BFF;
+      color:white;
+      font-size:24px;
+      cursor:pointer;
+      z-index:10000;
     }
 
-    footer h2 {
-      margin-bottom: 12px;
-      font-size: 38px;
-      color: white;
-    }
-
-    footer h2 span {
-      color: #007BFF;
-    }
-
-    footer p {
-      margin-bottom: 25px;
-    }
-
-    @media(max-width: 768px) {
-      .hero h1 {
-        font-size: 48px;
+    @media(max-width:768px){
+      .hero h1{
+        font-size:52px;
       }
 
-      .section-title h2,
-      .cta h2 {
-        font-size: 40px;
+      .section-title h2{
+        font-size:42px;
       }
 
-      .nav-links {
-        display: none;
+      .nav-links{
+        display:none;
+      }
+
+      .contact-box{
+        padding:40px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="container">
-    <nav>
-      <div class="logo">Vyantra<span>X</span></div>
+  <nav>
+    <div class="container nav-inner">
+
+      <div class="logo">
+        <img src="https://i.imgur.com/V1r9Y5P.png">
+        Vyantra<span>X</span>
+      </div>
 
       <div class="nav-links">
+        <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
-    </nav>
-  </div>
 
-  <!-- HERO -->
-  <section class="hero">
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
     <div class="container hero-grid">
 
       <div>
-        <div class="tag">Future-Ready Digital Solutions</div>
+        <div class="tag">Premium Software • Mobile Apps • AI Automation</div>
 
         <h1>
           Building <span>Intelligent</span><br>
-          Digital Systems
+          Digital Experiences
         </h1>
 
         <p>
-          VyantraX creates premium websites, mobile apps, enterprise software,
-          AI automation systems and futuristic digital experiences for modern businesses.
+          VyantraX designs premium websites, enterprise software, mobile applications and futuristic digital systems crafted for modern businesses worldwide.
         </p>
 
         <div class="buttons">
           <button class="btn btn-primary">Start Your Project</button>
-          <button class="btn btn-secondary">View Portfolio</button>
+          <button class="btn btn-secondary">Explore Work</button>
         </div>
       </div>
 
       <div class="hero-card">
-        <p style="color:#b0b0b0;">Active Projects</p>
-        <h2>24+</h2>
+        <div class="dashboard-box">
+          <p style="color:#9f9f9f;">Active Digital Projects</p>
+          <h2>28+</h2>
 
-        <div class="stat-box">
-          <p>Mobile Apps - 92%</p>
-          <div class="progress">
-            <div class="bar" style="width:92%"></div>
+          <div class="mini-card">
+            <p>Mobile Applications</p>
+            <div class="bar"><div class="fill" style="width:92%"></div></div>
           </div>
-        </div>
 
-        <div class="stat-box">
-          <p>Enterprise Software - 87%</p>
-          <div class="progress">
-            <div class="bar" style="width:87%"></div>
+          <div class="mini-card">
+            <p>Enterprise Systems</p>
+            <div class="bar"><div class="fill" style="width:87%"></div></div>
           </div>
-        </div>
 
-        <div class="stat-box">
-          <p>AI Automation - 95%</p>
-          <div class="progress">
-            <div class="bar" style="width:95%"></div>
+          <div class="mini-card">
+            <p>AI Automation</p>
+            <div class="bar"><div class="fill" style="width:96%"></div></div>
           </div>
+
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="container">
 
       <div class="section-title">
-        <p>Our Services</p>
-        <h2>Smart Solutions For Modern Businesses</h2>
+        <p>Services We Offer</p>
+        <h2>Scalable Solutions For Modern Businesses</h2>
         <span>
-          We combine design, engineering and innovation to create scalable digital products.
+          Combining design, engineering and innovation to create digital products that drive business growth.
         </span>
       </div>
 
       <div class="services-grid">
 
         <div class="service-card">
-          <div class="icon">💻</div>
+          <div class="service-icon">💻</div>
           <h3>Custom Software</h3>
-          <p>Scalable enterprise systems, dashboards and automation platforms.</p>
+          <p>Enterprise systems, dashboards, CRMs, ERP solutions and automation platforms.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">📱</div>
+          <div class="service-icon">📱</div>
           <h3>Mobile Apps</h3>
-          <p>Modern Android & iOS apps with premium UI and seamless performance.</p>
+          <p>Premium Android & iOS apps with seamless performance and modern user experience.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">🌐</div>
+          <div class="service-icon">🌐</div>
           <h3>Website Development</h3>
-          <p>Corporate websites, portfolios and high-converting digital experiences.</p>
+          <p>Luxury business websites, SaaS platforms, startup websites and corporate portals.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">🤖</div>
+          <div class="service-icon">🤖</div>
           <h3>AI Automation</h3>
           <p>AI-powered workflows, integrations and intelligent business systems.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">🎨</div>
-          <h3>UI/UX Design</h3>
-          <p>Minimal futuristic interfaces designed for premium brands and startups.</p>
+          <div class="service-icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>SEO, social media strategy, performance campaigns and online growth solutions.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">📈</div>
-          <h3>Digital Marketing</h3>
-          <p>SEO, branding, social media strategy and growth marketing campaigns.</p>
+          <div class="service-icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Minimal futuristic interfaces designed for modern startups and global brands.</p>
         </div>
 
       </div>
+
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" style="background:#09090c;">
+  <section id="projects" style="background:#08090C;">
     <div class="container">
 
       <div class="section-title">
-        <p>Featured Projects</p>
-        <h2>Industries We Build For</h2>
+        <p>Industries We Have Worked Upon</p>
+        <h2>Premium Industry Showcase</h2>
         <span>
-          Premium sample concepts across multiple industries showcasing design and development expertise.
+          Click any industry below to explore high-end sample landing pages and project concepts.
         </span>
       </div>
 
       <div class="projects-grid">
 
-        <div class="project-card" onclick="openProject('atms-demo')" style="cursor:pointer;">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+        <div class="project-card" onclick="openModal('astrology')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
-            <small>Government Infrastructure</small>
-            <h3>ATMS Dashboard</h3>
-            <p>Traffic monitoring and incident management platform with real-time analytics.</p>
+            <small>Astrology</small>
+            <h3>AstroVerse</h3>
+            <p>Premium astrology consultation platform with AI insights and tarot experiences.</p>
           </div>
         </div>
 
-        <div class="project-card" onclick="openProject('health-demo')" style="cursor:pointer;">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop">
+        <div class="project-card" onclick="openModal('healthcare')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Healthcare</small>
             <h3>HealthCare App</h3>
-            <p>Doctor booking, prescriptions and patient management mobile application.</p>
+            <p>Doctor consultation platform with appointments, prescriptions and patient records.</p>
           </div>
         </div>
 
-        <div class="project-card" onclick="openProject('realestate-demo')" style="cursor:pointer;">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop">
+        <div class="project-card" onclick="openModal('realestate')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Real Estate</small>
-            <h3>Luxury Property Website</h3>
-            <p>Premium real estate website with CRM integration and virtual tours.</p>
+            <h3>Luxury Property</h3>
+            <p>Modern real estate platform with premium listings and virtual tours.</p>
           </div>
         </div>
 
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
-          <div class="project-content">
-            <small>Education</small>
-            <h3>Learning Platform</h3>
-            <p>Interactive LMS with live classes, analytics and online assessments.</p>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop">
+        <div class="project-card" onclick="openModal('ecommerce')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>E-Commerce</small>
             <h3>Fashion Store</h3>
-            <p>Modern shopping platform with payment gateway and inventory management.</p>
+            <p>Luxury online shopping experience with seamless checkout and smart recommendations.</p>
           </div>
         </div>
 
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop">
+        <div class="project-card" onclick="openModal('shopping')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
-            <small>FinTech</small>
-            <h3>Finance Analytics</h3>
-            <p>AI-powered finance dashboard with reporting and predictive insights.</p>
+            <small>Shopping</small>
+            <h3>Retail Experience</h3>
+            <p>Interactive shopping platform designed for modern retail brands and stores.</p>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openModal('government')" style="cursor:pointer;">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop">
+          <div class="project-content">
+            <small>Government Infrastructure</small>
+            <h3>ATMS Dashboard</h3>
+            <p>AI-powered traffic monitoring and smart infrastructure management systems.</p>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container about-grid">
-
-      <div>
-        <div class="section-title" style="text-align:left; margin-bottom:30px;">
-          <p>About VyantraX</p>
-          <h2 style="font-size:52px;">Engineering The Future Of Digital Innovation</h2>
-        </div>
-
-        <p style="color:#b0b0b0; line-height:1.9; font-size:18px;">
-          VyantraX is a premium technology company focused on building scalable software solutions,
-          enterprise systems, mobile applications and intelligent automation platforms.
-        </p>
-      </div>
-
-      <div class="about-box">
-        <h3>Vision</h3>
-        <p>To become a globally recognized technology brand delivering intelligent digital ecosystems.</p>
-
-        <h3>Mission</h3>
-        <p>Creating impactful software and digital experiences for businesses worldwide.</p>
-
-        <h3>Core Values</h3>
-        <p>Innovation • Quality • Scalability • Performance • Transparency</p>
-      </div>
 
     </div>
   </section>
 
-  <!-- PREMIUM SHOWCASE PROJECT -->
-  <section style="background:#09090c; border-top:1px solid rgba(255,255,255,0.08);">
+  <section id="contact">
     <div class="container">
 
       <div class="section-title">
-        <p>Showcase Project</p>
-        <h2>Luxury Real Estate Platform</h2>
-        <span>
-          A premium sample project showcasing the type of modern high-end websites VyantraX builds for clients.
-        </span>
-      </div>
-
-      <div style="background:linear-gradient(145deg,#121218,#0a0a0f); border:1px solid rgba(255,255,255,0.08); border-radius:40px; overflow:hidden; box-shadow:0 20px 80px rgba(0,0,0,0.4);">
-
-        <div style="position:relative; height:650px; overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop"
-               style="width:100%; height:100%; object-fit:cover; filter:brightness(0.55);">
-
-          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px;">
-            <div>
-              <div style="display:inline-block; padding:12px 24px; border:1px solid rgba(255,255,255,0.2); border-radius:50px; margin-bottom:30px; color:#cfdfff; backdrop-filter:blur(10px);">
-                Premium Real Estate Experience
-              </div>
-
-              <h1 style="font-size:72px; font-weight:900; margin-bottom:25px; line-height:1.1;">
-                Find Your <span style="color:#007BFF;">Dream Luxury</span> Property
-              </h1>
-
-              <p style="max-width:800px; margin:auto; color:#d0d0d0; line-height:1.9; font-size:20px; margin-bottom:40px;">
-                Explore modern villas, penthouses and premium properties with immersive visuals and intelligent property discovery.
-              </p>
-
-              <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-                <button class="btn btn-primary">Explore Properties</button>
-                <button class="btn btn-secondary">Book Consultation</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="padding:70px 50px;">
-
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-bottom:60px;">
-
-            <div style="background:#111117; padding:35px; border-radius:28px; border:1px solid rgba(255,255,255,0.08);">
-              <h3 style="font-size:28px; margin-bottom:15px;">Smart Property Search</h3>
-              <p style="color:#b0b0b0; line-height:1.8;">
-                AI-powered search filters helping users discover properties based on location, budget and amenities.
-              </p>
-            </div>
-
-            <div style="background:#111117; padding:35px; border-radius:28px; border:1px solid rgba(255,255,255,0.08);">
-              <h3 style="font-size:28px; margin-bottom:15px;">Virtual Tours</h3>
-              <p style="color:#b0b0b0; line-height:1.8;">
-                Interactive immersive walkthroughs allowing customers to experience luxury properties digitally.
-              </p>
-            </div>
-
-            <div style="background:#111117; padding:35px; border-radius:28px; border:1px solid rgba(255,255,255,0.08);">
-              <h3 style="font-size:28px; margin-bottom:15px;">CRM Integration</h3>
-              <p style="color:#b0b0b0; line-height:1.8;">
-                Automated lead management, client tracking and real-time inquiry management dashboard.
-              </p>
-            </div>
-
-          </div>
-
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:35px;">
-
-            <div style="background:#111117; border-radius:30px; overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
-              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-                   style="width:100%; height:260px; object-fit:cover;">
-
-              <div style="padding:35px;">
-                <h3 style="font-size:30px; margin-bottom:15px;">Skyline Penthouse</h3>
-                <p style="color:#b0b0b0; line-height:1.8; margin-bottom:25px;">
-                  Ultra luxury penthouse featuring panoramic skyline views and smart home integration.
-                </p>
-
-                <button class="btn btn-primary">View Property</button>
-              </div>
-            </div>
-
-            <div style="background:#111117; border-radius:30px; overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
-              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1200&auto=format&fit=crop"
-                   style="width:100%; height:260px; object-fit:cover;">
-
-              <div style="padding:35px;">
-                <h3 style="font-size:30px; margin-bottom:15px;">Modern Luxury Villa</h3>
-                <p style="color:#b0b0b0; line-height:1.8; margin-bottom:25px;">
-                  Elegant architecture with premium interiors, smart automation and private outdoor spaces.
-                </p>
-
-                <button class="btn btn-primary">View Property</button>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section>
-    <div class="container">
-      <div class="cta">
+        <p>Contact Us</p>
         <h2>Let’s Build Something Exceptional</h2>
-
-        <p>
-          From startups to enterprises — VyantraX delivers powerful digital products designed for growth.
-        </p>
-
-        <button>Contact VyantraX</button>
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer id="contact">
-    <div class="container">
-      <h2>Vyantra<span>X</span></h2>
-      <p>Building Intelligent Digital Systems</p>
+      <div class="contact-box">
 
-      <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-        <span>Custom Software</span>
-        <span>Mobile Apps</span>
-        <span>AI Automation</span>
-        <span>Digital Solutions</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- SAMPLE LANDING PAGE MODALS -->
-  <div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.94); z-index:9999; overflow:auto; padding:40px;">
-
-    <button onclick="closeProject()" style="position:fixed; top:25px; right:30px; width:55px; height:55px; border:none; border-radius:50%; background:#007BFF; color:white; font-size:24px; cursor:pointer; z-index:10000;">✕</button>
-
-    <!-- ATMS DEMO -->
-    <div id="atms-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden;">
-      <div style="height:100vh; background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop') center/cover; position:relative;">
-        <div style="position:absolute; inset:0; background:rgba(0,0,0,0.72);"></div>
-
-        <div style="position:relative; z-index:2; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px;">
-          <div>
-            <div class="tag">Intelligent Traffic Management</div>
-            <h1 style="font-size:84px; margin-bottom:30px;">Smart Highway Monitoring</h1>
-            <p style="max-width:850px; margin:auto; color:#d0d0d0; line-height:1.9; font-size:22px; margin-bottom:40px;">
-              AI-powered traffic analytics, incident response and smart infrastructure monitoring platform.
-            </p>
-            <button class="btn btn-primary">Explore Dashboard</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HEALTHCARE DEMO -->
-    <div id="health-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden; background:#0f1117;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); align-items:center; min-height:100vh;">
-
-        <div style="padding:80px;">
-          <div class="tag">Healthcare Ecosystem</div>
-          <h1 style="font-size:78px; line-height:1.1; margin-bottom:30px;">Smarter Healthcare Experience</h1>
-          <p style="color:#b0b0b0; line-height:1.9; font-size:20px; margin-bottom:40px;">
-            Digital consultations, patient records, AI diagnostics and modern healthcare workflows.
+        <div>
+          <h2 style="font-size:52px; margin-bottom:24px;">Start Your Next Digital Project</h2>
+          <p style="color:#b0b0b0; line-height:1.9; font-size:18px;">
+            VyantraX helps startups, enterprises and modern brands create premium digital experiences.
           </p>
-          <button class="btn btn-primary">Get Started</button>
         </div>
 
         <div>
-          <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1400&auto=format&fit=crop" style="width:100%; height:100vh; object-fit:cover;">
+          <input type="text" placeholder="Your Name">
+          <input type="email" placeholder="Email Address">
+          <textarea rows="6" placeholder="Tell us about your project"></textarea>
+          <button class="btn btn-primary" style="width:100%;">Send Inquiry</button>
         </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h2>Vyantra<span>X</span></h2>
+      <p>Building Intelligent Digital Systems</p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+
+  <div id="modal">
+
+    <button class="close-btn" onclick="closeModal()">✕</button>
+
+    <div id="astrology" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.55);">
+      <div style="padding:70px;">
+        <div class="tag">Astrology Platform</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">AI Powered Astrology Experience</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Tarot readings, birth chart analysis, AI astrology reports and spiritual consultation systems.</p>
       </div>
     </div>
 
-    <!-- REAL ESTATE DEMO -->
-    <div id="realestate-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden;">
-      <div style="height:100vh; background:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop') center/cover; position:relative;">
-        <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(0,0,0,0.88), rgba(0,0,0,0.35));"></div>
+    <div id="healthcare" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
+      <div style="padding:70px;">
+        <div class="tag">Healthcare Platform</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">Smarter Digital Healthcare</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Appointments, digital prescriptions, AI diagnostics and patient management systems.</p>
+      </div>
+    </div>
 
-        <div style="position:relative; z-index:2; height:100%; display:flex; align-items:center; padding:80px; max-width:900px;">
-          <div>
-            <div class="tag">Luxury Real Estate Platform</div>
-            <h1 style="font-size:84px; line-height:1.05; margin-bottom:30px;">Experience Elite Living</h1>
-            <p style="color:#d0d0d0; line-height:1.9; font-size:22px; margin-bottom:45px; max-width:700px;">
-              Premium villas, skyline penthouses and immersive digital property experiences.
-            </p>
-            <div style="display:flex; gap:20px; flex-wrap:wrap;">
-              <button class="btn btn-primary">View Properties</button>
-              <button class="btn btn-secondary">Book Visit</button>
-            </div>
-          </div>
-        </div>
+    <div id="realestate" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
+      <div style="padding:70px;">
+        <div class="tag">Luxury Real Estate</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">Elite Property Experience</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Premium real estate portals with virtual tours, smart search and CRM integrations.</p>
+      </div>
+    </div>
+
+    <div id="ecommerce" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
+      <div style="padding:70px;">
+        <div class="tag">E-Commerce Platform</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">Luxury Fashion Marketplace</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Modern shopping experiences with premium UI, seamless checkout and product analytics.</p>
+      </div>
+    </div>
+
+    <div id="shopping" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
+      <div style="padding:70px;">
+        <div class="tag">Retail Shopping</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">Future Retail Experience</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Interactive retail experiences with customer analytics and digital engagement systems.</p>
+      </div>
+    </div>
+
+    <div id="government" class="modal-page">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
+      <div style="padding:70px;">
+        <div class="tag">Government Infrastructure</div>
+        <h1 style="font-size:72px; margin-bottom:25px;">Smart Infrastructure Systems</h1>
+        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Traffic monitoring dashboards, emergency response systems and real-time analytics platforms.</p>
       </div>
     </div>
 
   </div>
 
   <script>
-    function openProject(id) {
-      document.getElementById('projectModal').style.display = 'block';
-      document.body.style.overflow = 'hidden';
+    function openModal(id){
+      document.getElementById('modal').style.display='block';
+      document.body.style.overflow='hidden';
 
-      document.querySelectorAll('.demo-page').forEach(page => {
-        page.style.display = 'none';
+      document.querySelectorAll('.modal-page').forEach(page=>{
+        page.style.display='none';
       });
 
-      document.getElementById(id).style.display = 'block';
+      document.getElementById(id).style.display='block';
     }
 
-    function closeProject() {
-      document.getElementById('projectModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
+    function closeModal(){
+      document.getElementById('modal').style.display='none';
+      document.body.style.overflow='auto';
     }
   </script>
+
 </body>
 </html>
