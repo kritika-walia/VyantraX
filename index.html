@@ -534,7 +534,7 @@
 
       <div class="projects-grid">
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProject('atms-demo')" style="cursor:pointer;">
           <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
           <div class="project-content">
             <small>Government Infrastructure</small>
@@ -543,7 +543,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProject('health-demo')" style="cursor:pointer;">
           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop">
           <div class="project-content">
             <small>Healthcare</small>
@@ -552,7 +552,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProject('realestate-demo')" style="cursor:pointer;">
           <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop">
           <div class="project-content">
             <small>Real Estate</small>
@@ -756,5 +756,87 @@
     </div>
   </footer>
 
+  <!-- SAMPLE LANDING PAGE MODALS -->
+  <div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.94); z-index:9999; overflow:auto; padding:40px;">
+
+    <button onclick="closeProject()" style="position:fixed; top:25px; right:30px; width:55px; height:55px; border:none; border-radius:50%; background:#007BFF; color:white; font-size:24px; cursor:pointer; z-index:10000;">✕</button>
+
+    <!-- ATMS DEMO -->
+    <div id="atms-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden;">
+      <div style="height:100vh; background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop') center/cover; position:relative;">
+        <div style="position:absolute; inset:0; background:rgba(0,0,0,0.72);"></div>
+
+        <div style="position:relative; z-index:2; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px;">
+          <div>
+            <div class="tag">Intelligent Traffic Management</div>
+            <h1 style="font-size:84px; margin-bottom:30px;">Smart Highway Monitoring</h1>
+            <p style="max-width:850px; margin:auto; color:#d0d0d0; line-height:1.9; font-size:22px; margin-bottom:40px;">
+              AI-powered traffic analytics, incident response and smart infrastructure monitoring platform.
+            </p>
+            <button class="btn btn-primary">Explore Dashboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEALTHCARE DEMO -->
+    <div id="health-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden; background:#0f1117;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); align-items:center; min-height:100vh;">
+
+        <div style="padding:80px;">
+          <div class="tag">Healthcare Ecosystem</div>
+          <h1 style="font-size:78px; line-height:1.1; margin-bottom:30px;">Smarter Healthcare Experience</h1>
+          <p style="color:#b0b0b0; line-height:1.9; font-size:20px; margin-bottom:40px;">
+            Digital consultations, patient records, AI diagnostics and modern healthcare workflows.
+          </p>
+          <button class="btn btn-primary">Get Started</button>
+        </div>
+
+        <div>
+          <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1400&auto=format&fit=crop" style="width:100%; height:100vh; object-fit:cover;">
+        </div>
+      </div>
+    </div>
+
+    <!-- REAL ESTATE DEMO -->
+    <div id="realestate-demo" class="demo-page" style="display:none; max-width:1500px; margin:auto; border-radius:40px; overflow:hidden;">
+      <div style="height:100vh; background:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop') center/cover; position:relative;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(0,0,0,0.88), rgba(0,0,0,0.35));"></div>
+
+        <div style="position:relative; z-index:2; height:100%; display:flex; align-items:center; padding:80px; max-width:900px;">
+          <div>
+            <div class="tag">Luxury Real Estate Platform</div>
+            <h1 style="font-size:84px; line-height:1.05; margin-bottom:30px;">Experience Elite Living</h1>
+            <p style="color:#d0d0d0; line-height:1.9; font-size:22px; margin-bottom:45px; max-width:700px;">
+              Premium villas, skyline penthouses and immersive digital property experiences.
+            </p>
+            <div style="display:flex; gap:20px; flex-wrap:wrap;">
+              <button class="btn btn-primary">View Properties</button>
+              <button class="btn btn-secondary">Book Visit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function openProject(id) {
+      document.getElementById('projectModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+
+      document.querySelectorAll('.demo-page').forEach(page => {
+        page.style.display = 'none';
+      });
+
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeProject() {
+      document.getElementById('projectModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  </script>
 </body>
 </html>
