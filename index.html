@@ -1,6 +1,656 @@
-<html>
-  <head>
-    <body> vyantrax
-    </body>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VyantraX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0B0B0D;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(11,11,13,0.9);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #007BFF;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      color: #cfcfcf;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: rgba(0,123,255,0.18);
+      border-radius: 50%;
+      filter: blur(140px);
+      top: -200px;
+      right: -100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+      gap: 70px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid rgba(0,123,255,0.4);
+      border-radius: 50px;
+      color: #53a6ff;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.05;
+      margin-bottom: 30px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #007BFF;
+    }
+
+    .hero p {
+      color: #b0b0b0;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 650px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 18px 34px;
+      border-radius: 18px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #007BFF;
+      color: white;
+      box-shadow: 0 0 40px rgba(0,123,255,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg,#111117,#0a0a0f);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 45px;
+      border-radius: 35px;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+    }
+
+    .hero-card h2 {
+      font-size: 52px;
+      margin: 10px 0;
+    }
+
+    .stat-box {
+      margin-top: 30px;
+    }
+
+    .progress {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      height: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .bar {
+      height: 100%;
+      background: #007BFF;
+    }
+
+    /* SECTION */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title p {
+      color: #007BFF;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .section-title span {
+      color: #b0b0b0;
+      font-size: 18px;
+      max-width: 700px;
+      display: inline-block;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg,#121218,#09090c);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 40px;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0,123,255,0.4);
+    }
+
+    .service-card .icon {
+      font-size: 55px;
+      margin-bottom: 25px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .service-card p {
+      color: #b0b0b0;
+      line-height: 1.8;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+      gap: 35px;
+    }
+
+    .project-card {
+      background: #111;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0,123,255,0.4);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 35px;
+    }
+
+    .project-content small {
+      color: #007BFF;
+      font-size: 14px;
+    }
+
+    .project-content h3 {
+      margin: 15px 0;
+      font-size: 30px;
+    }
+
+    .project-content p {
+      color: #b0b0b0;
+      line-height: 1.8;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: linear-gradient(145deg,rgba(0,123,255,0.1),rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 35px;
+      padding: 45px;
+    }
+
+    .about-box h3 {
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
+
+    .about-box p {
+      color: #b0b0b0;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg,#007BFF,#0054b4);
+      border-radius: 40px;
+      padding: 80px 50px;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(0,123,255,0.3);
+    }
+
+    .cta h2 {
+      font-size: 58px;
+      margin-bottom: 25px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      color: #eaf3ff;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .cta button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 50px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      color: #888;
+    }
+
+    footer h2 {
+      margin-bottom: 12px;
+      font-size: 38px;
+      color: white;
+    }
+
+    footer h2 span {
+      color: #007BFF;
+    }
+
+    footer p {
+      margin-bottom: 25px;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .section-title h2,
+      .cta h2 {
+        font-size: 40px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="container">
+    <nav>
+      <div class="logo">Vyantra<span>X</span></div>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <div class="tag">Future-Ready Digital Solutions</div>
+
+        <h1>
+          Building <span>Intelligent</span><br>
+          Digital Systems
+        </h1>
+
+        <p>
+          VyantraX creates premium websites, mobile apps, enterprise software,
+          AI automation systems and futuristic digital experiences for modern businesses.
+        </p>
+
+        <div class="buttons">
+          <button class="btn btn-primary">Start Your Project</button>
+          <button class="btn btn-secondary">View Portfolio</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <p style="color:#b0b0b0;">Active Projects</p>
+        <h2>24+</h2>
+
+        <div class="stat-box">
+          <p>Mobile Apps - 92%</p>
+          <div class="progress">
+            <div class="bar" style="width:92%"></div>
+          </div>
+        </div>
+
+        <div class="stat-box">
+          <p>Enterprise Software - 87%</p>
+          <div class="progress">
+            <div class="bar" style="width:87%"></div>
+          </div>
+        </div>
+
+        <div class="stat-box">
+          <p>AI Automation - 95%</p>
+          <div class="progress">
+            <div class="bar" style="width:95%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-title">
+        <p>Our Services</p>
+        <h2>Smart Solutions For Modern Businesses</h2>
+        <span>
+          We combine design, engineering and innovation to create scalable digital products.
+        </span>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="icon">💻</div>
+          <h3>Custom Software</h3>
+          <p>Scalable enterprise systems, dashboards and automation platforms.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">📱</div>
+          <h3>Mobile Apps</h3>
+          <p>Modern Android & iOS apps with premium UI and seamless performance.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">🌐</div>
+          <h3>Website Development</h3>
+          <p>Corporate websites, portfolios and high-converting digital experiences.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">🤖</div>
+          <h3>AI Automation</h3>
+          <p>AI-powered workflows, integrations and intelligent business systems.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Minimal futuristic interfaces designed for premium brands and startups.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>SEO, branding, social media strategy and growth marketing campaigns.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="background:#09090c;">
+    <div class="container">
+
+      <div class="section-title">
+        <p>Featured Projects</p>
+        <h2>Industries We Build For</h2>
+        <span>
+          Premium sample concepts across multiple industries showcasing design and development expertise.
+        </span>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>Government Infrastructure</small>
+            <h3>ATMS Dashboard</h3>
+            <p>Traffic monitoring and incident management platform with real-time analytics.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>Healthcare</small>
+            <h3>HealthCare App</h3>
+            <p>Doctor booking, prescriptions and patient management mobile application.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>Real Estate</small>
+            <h3>Luxury Property Website</h3>
+            <p>Premium real estate website with CRM integration and virtual tours.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>Education</small>
+            <h3>Learning Platform</h3>
+            <p>Interactive LMS with live classes, analytics and online assessments.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>E-Commerce</small>
+            <h3>Fashion Store</h3>
+            <p>Modern shopping platform with payment gateway and inventory management.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop">
+          <div class="project-content">
+            <small>FinTech</small>
+            <h3>Finance Analytics</h3>
+            <p>AI-powered finance dashboard with reporting and predictive insights.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+
+      <div>
+        <div class="section-title" style="text-align:left; margin-bottom:30px;">
+          <p>About VyantraX</p>
+          <h2 style="font-size:52px;">Engineering The Future Of Digital Innovation</h2>
+        </div>
+
+        <p style="color:#b0b0b0; line-height:1.9; font-size:18px;">
+          VyantraX is a premium technology company focused on building scalable software solutions,
+          enterprise systems, mobile applications and intelligent automation platforms.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h3>Vision</h3>
+        <p>To become a globally recognized technology brand delivering intelligent digital ecosystems.</p>
+
+        <h3>Mission</h3>
+        <p>Creating impactful software and digital experiences for businesses worldwide.</p>
+
+        <h3>Core Values</h3>
+        <p>Innovation • Quality • Scalability • Performance • Transparency</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Let’s Build Something Exceptional</h2>
+
+        <p>
+          From startups to enterprises — VyantraX delivers powerful digital products designed for growth.
+        </p>
+
+        <button>Contact VyantraX</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <h2>Vyantra<span>X</span></h2>
+      <p>Building Intelligent Digital Systems</p>
+
+      <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+        <span>Custom Software</span>
+        <span>Mobile Apps</span>
+        <span>AI Automation</span>
+        <span>Digital Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
