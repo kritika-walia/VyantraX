@@ -456,22 +456,40 @@
 
       <div class="hero-card">
         <div class="dashboard-box">
-          <p style="color:#9f9f9f;">Active Digital Projects</p>
-          <h2>28+</h2>
 
-          <div class="mini-card">
-            <p>Mobile Applications</p>
-            <div class="bar"><div class="fill" style="width:92%"></div></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:35px;">
+            <div>
+              <p style="color:#9f9f9f; font-size:14px; margin-bottom:10px;">Trusted Digital Innovation Partner</p>
+              <h2 style="font-size:48px;">Future Ready Solutions</h2>
+            </div>
+
+            <div style="width:72px; height:72px; border-radius:22px; background:rgba(0,123,255,0.15); display:flex; align-items:center; justify-content:center; font-size:34px;">
+              ⚡
+            </div>
           </div>
 
-          <div class="mini-card">
-            <p>Enterprise Systems</p>
-            <div class="bar"><div class="fill" style="width:87%"></div></div>
-          </div>
+          <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
 
-          <div class="mini-card">
-            <p>AI Automation</p>
-            <div class="bar"><div class="fill" style="width:96%"></div></div>
+            <div class="mini-card">
+              <h3 style="font-size:30px; margin-bottom:10px; color:#007BFF;">AI Systems</h3>
+              <p>Smart automation and intelligent digital workflows.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3 style="font-size:30px; margin-bottom:10px; color:#007BFF;">Enterprise Apps</h3>
+              <p>Scalable business software and management systems.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3 style="font-size:30px; margin-bottom:10px; color:#007BFF;">Mobile Platforms</h3>
+              <p>Premium Android and iOS application experiences.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3 style="font-size:30px; margin-bottom:10px; color:#007BFF;">Digital Growth</h3>
+              <p>Web experiences designed for visibility and scale.</p>
+            </div>
+
           </div>
 
         </div>
@@ -547,7 +565,7 @@
 
       <div class="projects-grid">
 
-        <div class="project-card" onclick="openModal('astrology')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Astrology</small>
@@ -556,7 +574,7 @@
           </div>
         </div>
 
-        <div class="project-card" onclick="openModal('healthcare')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Healthcare</small>
@@ -565,7 +583,7 @@
           </div>
         </div>
 
-        <div class="project-card" onclick="openModal('realestate')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Real Estate</small>
@@ -574,7 +592,7 @@
           </div>
         </div>
 
-        <div class="project-card" onclick="openModal('ecommerce')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>E-Commerce</small>
@@ -583,7 +601,7 @@
           </div>
         </div>
 
-        <div class="project-card" onclick="openModal('shopping')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Shopping</small>
@@ -592,7 +610,7 @@
           </div>
         </div>
 
-        <div class="project-card" onclick="openModal('government')" style="cursor:pointer;">
+        <div class="project-card">
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop">
           <div class="project-content">
             <small>Government Infrastructure</small>
@@ -642,85 +660,7 @@
     </div>
   </footer>
 
-  <!-- MODAL -->
-
-  <div id="modal">
-
-    <button class="close-btn" onclick="closeModal()">✕</button>
-
-    <div id="astrology" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.55);">
-      <div style="padding:70px;">
-        <div class="tag">Astrology Platform</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">AI Powered Astrology Experience</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Tarot readings, birth chart analysis, AI astrology reports and spiritual consultation systems.</p>
-      </div>
-    </div>
-
-    <div id="healthcare" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
-      <div style="padding:70px;">
-        <div class="tag">Healthcare Platform</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">Smarter Digital Healthcare</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Appointments, digital prescriptions, AI diagnostics and patient management systems.</p>
-      </div>
-    </div>
-
-    <div id="realestate" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
-      <div style="padding:70px;">
-        <div class="tag">Luxury Real Estate</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">Elite Property Experience</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Premium real estate portals with virtual tours, smart search and CRM integrations.</p>
-      </div>
-    </div>
-
-    <div id="ecommerce" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
-      <div style="padding:70px;">
-        <div class="tag">E-Commerce Platform</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">Luxury Fashion Marketplace</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Modern shopping experiences with premium UI, seamless checkout and product analytics.</p>
-      </div>
-    </div>
-
-    <div id="shopping" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
-      <div style="padding:70px;">
-        <div class="tag">Retail Shopping</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">Future Retail Experience</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Interactive retail experiences with customer analytics and digital engagement systems.</p>
-      </div>
-    </div>
-
-    <div id="government" class="modal-page">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1800&auto=format&fit=crop" style="width:100%; height:700px; object-fit:cover; filter:brightness(0.6);">
-      <div style="padding:70px;">
-        <div class="tag">Government Infrastructure</div>
-        <h1 style="font-size:72px; margin-bottom:25px;">Smart Infrastructure Systems</h1>
-        <p style="color:#b3b3b3; line-height:1.9; font-size:20px;">Traffic monitoring dashboards, emergency response systems and real-time analytics platforms.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    function openModal(id){
-      document.getElementById('modal').style.display='block';
-      document.body.style.overflow='hidden';
-
-      document.querySelectorAll('.modal-page').forEach(page=>{
-        page.style.display='none';
-      });
-
-      document.getElementById(id).style.display='block';
-    }
-
-    function closeModal(){
-      document.getElementById('modal').style.display='none';
-      document.body.style.overflow='auto';
-    }
-  </script>
+  
 
 </body>
 </html>
